@@ -1,0 +1,45 @@
+code book for tidy_data.txt
+
+This code book indicates the variable names in the tidy data set and their changes in name from the original data.
+
+
+sid: subject id, representing the test subjects. 
+     Its values are integers from 1~30, readin from subject_test.txt and subject_train.txt
+
+
+test: test activity, representing the activity names. 
+      Its values are characters from one of "WALKING", "UPSTAIRS", "DOWNSTAIRS", "SITTING", "STANDING", "LAYING" 
+      readin from activity_labels and modified as belows:
+      "WALKING_UPSTAIRS" changes to "UPSTAIRS"
+      "WALKING_DOWNSTAIRS" changes to "DOWNSTAIRES"  
+ 
+The following values are for each sid and test, please refer to features_info.txt for details of names.
+These signals were used to estimate variables of the feature vector for each pattern:  
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
+tBodyAcc-XYZ
+tGravityAcc-XYZ
+tBodyAccJerk-XYZ
+tBodyGyro-XYZ
+tBodyGyroJerk-XYZ
+tBodyAccMag
+tGravityAccMag
+tBodyAccJerkMag
+tBodyGyroMag
+tBodyGyroJerkMag
+fBodyAcc-XYZ
+fBodyAccJerk-XYZ
+fBodyGyro-XYZ
+fBodyAccMag
+fBodyAccJerkMag
+fBodyGyroMag
+fBodyGyroJerkMag
+
+the set of variables that were estimated from these signals are: 
+
+mean: mean of mean value for each subject and activity
+std: mean of standard deviation for each subject and activity
+
+For example:
+
+tBodyAcc-mean-X is the mean value of body acceleration in X direction for each subject and test activity. 
