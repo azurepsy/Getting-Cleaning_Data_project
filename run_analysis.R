@@ -4,7 +4,7 @@ run_analysis <- function() {
 #        download.file(fileUrl, destfile = "./dataset.zip")
 #        unzip("./dataset.zip")
         
-        # check and load dplyr library
+        # load dplyr library
         print("load dplyr library"); library(dplyr)
         
         # readin test and train data, merge them to a single data set
@@ -14,14 +14,14 @@ run_analysis <- function() {
         dtrain <- readin_dat(dir2)
         dat <- rbind(dtest, dtrain)
 
-        # readin the feature names
+        # readin the feature names and select only mean and std columns
         fnames <- read.table("./UCI HAR Dataset/features.txt")
         var <- c("sid", "test", as.character(fnames[, 2])); colnames(dat) <- var
         ind <- c(1,2, grep("-mean()", var, ignore.case = FALSE, fixed = TRUE),
                  grep("-std()", var, ignore.case = FALSE, fixed = TRUE))         
         dat <- subset(dat, select = var[ind])
 
-        # put proper activity name for test 
+        # put proper activity names for test 
         labels <- read.table("./UCI HAR Dataset/activity_labels.txt")
         labels <- gsub("WALKING_","",labels[,2],fixed = TRUE)
         dat$test <- labels[dat$test]
